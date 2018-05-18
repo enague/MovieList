@@ -1,0 +1,38 @@
+body {
+  background-color: aliceblue;
+}
+
+button {
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 15px;
+  background: #020405;
+  padding: 5px 20px 5px 20px;
+  text-decoration: none;
+}
+
+button:hover {
+  background: #007cc9;
+  text-decoration: none;
+}
+
+
+.title {
+  font-size: 30px;
+  font-family: 'Pangolin', cursive;
+  text-align: center;
+}
+
+.movie {
+  font-family: 'Righteous', cursive;
+}
+
+
+.resize {
+    width: 300px;
+    height: auto;
+    float: right;
+}
