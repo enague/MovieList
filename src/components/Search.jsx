@@ -15,7 +15,7 @@ class Search extends React.Component {
           		type="text"
           		value="Search..."
         	/>
-        	<button className="btn hidden-sm-down"> Search </button>
+        	<button onClick={() => this.props.handleClick()} className="btn hidden-sm-down"> Search </button>
         	</div> 
 
 		)
