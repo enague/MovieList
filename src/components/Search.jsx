@@ -2,9 +2,17 @@ class Search extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			value: ''
+		};
 
-		}
+	}
 
+
+	handleInputChange(e) {
+		//console.log(e);
+		this.setState({
+			value:e.target.value
+		})
 	}
 
 	render() {
@@ -13,9 +21,10 @@ class Search extends React.Component {
        	 	<input
           		className="form-control"
           		type="text"
-          		value="Search..."
+          		value={this.state.value}
+          		onChange={this.handleInputChange.bind(this)}
         	/>
-        	<button onClick={() => this.props.handleClick()} className="btn hidden-sm-down"> Search </button>
+        	<button onClick={() => {this.props.handleClick(this.state.value)}} className="btn hidden-sm-down"> Search </button>
         	</div> 
 
 		)
