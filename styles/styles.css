@@ -12,6 +12,7 @@ button {
   background: #020405;
   padding: 5px 20px 5px 20px;
   text-decoration: none;
+  text-align: center;
 }
 
 button:hover {
@@ -26,8 +27,11 @@ button:hover {
   text-align: center;
 }
 
-.movie {
+#movie {
   font-family: 'Righteous', cursive;
+  font-size: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 

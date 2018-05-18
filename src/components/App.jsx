@@ -9,7 +9,7 @@ class App extends React.Component {
 
 	handleClick(value) {
 		for(var i = 0; i < this.state.movies.length; i++) {
-			if(this.state.movies[i].title === value) {
+			if(this.state.movies[i].title.toUpperCase() === value.toUpperCase()) {
 				this.setState({
 					movies: [this.state.movies[i]]
 				})
