@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Movie Title</title>
+    <link href="https://fonts.googleapis.com/css?family=Pangolin" rel="stylesheet">
+    <script src="lib/react/react-with-addons.js"></script>
+    <script src="lib/react/react-dom.js"></script>
+    <style>
+      body {
+        background-color: aliceblue;
+      }
+
+      .title {
+        font-size: 30px;
+        font-family: 'Pangolin', cursive;
+        text-align: center;
+      }
+
+      .moviesData {
+        width: 300px;
+        border: 10px solid gray;
+        padding: 25px;
+        margin: 25px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class='title'> MovieList</div>
+    <!-- <div className="search-bar form-inline">
+        <input
+          className="form-control"
+          type="text"
+          value="Search..."
+        />
+        <button className="btn hidden-sm-down"> Search </button>  -->
+    <div id="app"></div>
+    <script src="compiled/components/Search.js"></script>
+    <script src="compiled/components/MovieListEntry.js"></script>
+    <script src="compiled/components/MovieList.js"></script>
+    <script src="compiled/components/App.js"></script>
+    <script src="compiled/index.js"></script>
+  </body>
+</html>
