@@ -8,22 +8,19 @@ class App extends React.Component {
 	}
 
 	handleClick(value) {
-		console.log('hit from search');
-		console.log(value)
-		console.log(this.state.movies[0].title)
-
-
-		for(var i = 0; i <this.state.movies.length; i++) {
+		for(var i = 0; i < this.state.movies.length; i++) {
 			if(this.state.movies[i].title === value) {
 				this.setState({
-					movies: this.state.movies[i]
+					movies: [this.state.movies[i]]
 				})
+				return;
 			} else {
 				this.setState({
-					movies: [{title: 'Not Found -- Please Try Again!'}]
+					movies: [{title: 'Movie Not Found -- Please refresh and Try Again!'}]
 				})
 			}
 		}
+		value = '';
 	}
 
 	render() {
