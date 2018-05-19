@@ -35,6 +35,25 @@ class App extends React.Component {
 		}
 	}
 
+	onlyWatchedMovies() {
+		var watchedMovies= []
+		console.log(this.state.movies[0])
+		for(var i = 0; i < this.state.movies; i++) {
+			console.log(this.state.movies[i].toggle)
+			if(this.state.movies[i][toggle]) {
+				watchedMovies.push(this.state.movies[i])
+			}
+		}
+		this.setState({
+			movies: watchedMovies
+		
+		})
+	}
+
+	onlyToWatchMovies() {
+
+	}
+
 	render() {
 		return (
 			<div>
@@ -45,6 +64,8 @@ class App extends React.Component {
 				<Search handleClick={this.handleClick.bind(this)} movie= {this.state.movies}/>
 				<MovieList movie={this.state.movies}/>
 				<button onClick={()=> {location.reload()}}>Refresh Page</button>
+				<button onClick= {() => {this.onlyWatchedMovies()}}> Watched Movies</button>
+				<button onClick= {() => {this.onlyToWatchMovies()}}> Movies To Watch</button>
 			</div>	
 		)
 	}

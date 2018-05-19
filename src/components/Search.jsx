@@ -17,7 +17,7 @@ class Search extends React.Component {
 
 	render() {
 		return (
-			<div className="search-bar form-inline">
+			<div className="search-bar">
        	 	<input
           		className="form-control"
           		type="text"
