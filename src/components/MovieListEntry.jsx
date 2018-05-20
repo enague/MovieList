@@ -4,16 +4,10 @@ class MovieListEntry extends React.Component {
 		super(props);
 		this.state = {
 			movieInfo: this.props.movieDetail,
-			toggle: true,
 			info: false	
 		};
  	}
 
-	toggleWatch() {
-		this.setState(prevState =>({
-			toggle:!prevState.toggle
-		}));
-	}
 
 	showResultsNow() {
 		this.setState(prevState=>({
@@ -25,11 +19,7 @@ class MovieListEntry extends React.Component {
 		return (
 			<div>
 		 		<div id='movie' onClick={() => {this.showResultsNow()}}> {this.props.movieDetail.title} </div>
-
-		 		<div> {this.state.info ? <Info movieDetail={this.state.movieInfo} /> : null} </div> 
-		 		
-		 		<div onClick={() => {this.toggleWatch()}}> {this.state.toggle ? 'To Watch' : 'Watched'} </div>
-		 	
+		 		<div> {this.state.info ? <Info movieDetail={this.state.movieInfo} /> : null} </div> 	
     		</div>
 
 		)

@@ -18,6 +18,7 @@ button {
 button:hover {
   background: #007cc9;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .title {
@@ -41,6 +42,20 @@ button:hover {
   cursor: pointer;
 }
 
+.info {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.watch {
+  color: blue;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.watch:hover {
+  color: orange;
+}
 
 
 .resize {
