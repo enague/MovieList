@@ -1,17 +1,12 @@
-// var MovieListEntry = (props) => (
-// 	<div>
-// 		<div id='movie'> {props.movieDetail.title} </div>
-// 	</div>
-// )
 
 class MovieListEntry extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			movieInfo: this.props.movieDetail,
 			toggle: true,
-	
+			info: false	
 		};
-
  	}
 
 	toggleWatch() {
@@ -20,29 +15,43 @@ class MovieListEntry extends React.Component {
 		}));
 	}
 
-	// 	if(this.state.toggle) {
-	// 		//display watched
-	// 		this.setState ({
-	// 			watch: 'watched'
-	// 		})
-	// 	} else {
-	// 		//display not watched
-	// 		this.setState ({
-	// 			watch: 'Watch?'
-	// 		})
-	// 	}
-	// }
+	showResultsNow() {
+		this.setState(prevState=>({
+			info: !prevState.info
+		}));
+	}
 
 	render() {
 		return (
 			<div>
-		 		<div id='movie' > {this.props.movieDetail.title} 
-		 		<div onClick={() => {this.toggleWatch()}}>
-		 		{this.state.toggle ? 'To Watch' :'Watched'} 
-		 		</div>
-		 		</div>
+		 		<div id='movie' onClick={() => {this.showResultsNow()}}> {this.props.movieDetail.title} </div>
+
+		 		<div> {this.state.info ? <Info movieDetail={this.state.movieInfo} /> : null} </div> 
+		 		
+		 		<div onClick={() => {this.toggleWatch()}}> {this.state.toggle ? 'To Watch' : 'Watched'} </div>
+		 	
     		</div>
 
 		)
 	}
 }
+
+// class Info extends React.Component {
+// 	constructor(props) {
+// 		super(props) 
+
+		
+// 	}
+
+//     render() {
+//         return (
+//             <div id="results" className="search-results">
+// 	            <div> Year: {this.props.movieDetail.Year}</div>
+// 	            <div> Runtime {this.props.movieDetail.Runtime}</div>
+// 	            <div> Metascore: {this.props.movieDetail.Metascore}</div>
+// 	            <div> imdbRating: {this.props.movieDetail.imdbRating}</div>
+//             </div>
+            
+//         );
+//     }
+// };
