@@ -1,3 +1,5 @@
+//var React = require('react');
+
 
 class App extends React.Component {
 	constructor(props) {
@@ -70,3 +72,5 @@ class App extends React.Component {
 		)
 	}
 }
+
+module.exports = App

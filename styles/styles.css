@@ -43,14 +43,14 @@ button:hover {
 }
 
 .info {
-  font-weight: bold;
   font-size: 18px;
 }
 
 .watch {
   color: blue;
+  font-weight: bold;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 24px;
 }
 
 .watch:hover {
