@@ -9,7 +9,7 @@ class Add extends React.Component {
 
 
 	handleInputChange(e) {
-		console.log(e.target.value);
+		//console.log(e.target.value);
 		e.preventDefault();
 		this.setState({
 			value:e.target.value
@@ -22,6 +22,7 @@ class Add extends React.Component {
        	 	<input
           		className="form-control"
           		type="text"
+          		ref="add"
           		value={this.state.value}
           		onChange={this.handleInputChange.bind(this)}
         	/>

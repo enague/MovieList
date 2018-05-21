@@ -10,7 +10,6 @@ class App extends React.Component {
 	}
 
 	addMovie(value) {
-		console.log('this hit')
 		if(value === '') {
 			this.setState({
 				movies: [{title: 'Oops I do not think you entered a movie title - Try again!'}]
@@ -19,6 +18,8 @@ class App extends React.Component {
 			this.state.movies.push({title: value})
 			console.log(this.state.movies)
 			//how do you clear the input field after clicking the button?
+			
+
 		}
 	}
 
@@ -37,24 +38,24 @@ class App extends React.Component {
 		}
 	}
 
-	onlyWatchedMovies() {
-		var watchedMovies= []
-		console.log(this.state.movies[0])
-		for(var i = 0; i < this.state.movies; i++) {
-			console.log(this.state.movies[i].toggle)
-			if(this.state.movies[i][toggle]) {
-				watchedMovies.push(this.state.movies[i])
-			}
-		}
-		this.setState({
-			movies: watchedMovies
+	// onlyWatchedMovies() {
+	// 	var watchedMovies= []
+	// 	console.log(this.state.movies[0])
+	// 	for(var i = 0; i < this.state.movies; i++) {
+	// 		console.log(this.state.movies[i].toggle)
+	// 		if(this.state.movies[i][toggle]) {
+	// 			watchedMovies.push(this.state.movies[i])
+	// 		}
+	// 	}
+	// 	this.setState({
+	// 		movies: watchedMovies
 		
-		})
-	}
+	// 	})
+	// }
 
-	onlyToWatchMovies() {
+	// onlyToWatchMovies() {
 
-	}
+	// }
 
 	render() {
 		return (
@@ -65,6 +66,7 @@ class App extends React.Component {
 				<h3> Check here to see if we have it in our list! </h3>
 				<Search handleClick={this.handleClick.bind(this)} movie= {this.state.movies}/>
 				<MovieList movie={this.state.movies}/>
+				<div className='newMovies'></div>
 				<button onClick={()=> {location.reload()}}>Refresh Page</button>
 				<button onClick= {() => {this.onlyWatchedMovies()}}> Watched Movies</button>
 				<button onClick= {() => {this.onlyToWatchMovies()}}> Movies To Watch</button>
@@ -73,4 +75,4 @@ class App extends React.Component {
 	}
 }
 
-module.exports = App
+// module.exports = App
