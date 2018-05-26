@@ -1,6 +1,3 @@
-//var React = require('react');
-
-
 class App extends React.Component {
 	constructor(props) {
 		super(props);
@@ -8,7 +5,7 @@ class App extends React.Component {
 			movies: this.props.movies
 		}
 	}
-
+	//add button
 	addMovie(value) {
 		if(value === '') {
 			this.setState({
@@ -16,13 +13,22 @@ class App extends React.Component {
 			})
 		} else {
 			this.state.movies.push({title: value})
-			console.log(this.state.movies)
-			//how do you clear the input field after clicking the button?
-			
-
 		}
+		
+		$.ajax({
+			type: 'POST',
+			url: '/movies',
+			data: {value},
+			success: (data) => {
+				console.log('enters sucess on POST on client')
+			},
+			error: (error) => {
+				
+			}
+		})
 	}
-
+	
+	//search button
 	handleClick(value) {
 		for(var i = 0; i < this.state.movies.length; i++) {
 			if(this.state.movies[i].title.toUpperCase() === value.toUpperCase()) {
