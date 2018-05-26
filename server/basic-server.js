@@ -25,6 +25,7 @@ var getMovies = function (movieName) {
 }
 
 var save = function() {
+  //save to database
   
 }
 
@@ -37,7 +38,8 @@ app.post('/movies', function(req, res) {
     //res.send() the data
   getMovies(movieName)
   .then((data) => {
-    res.send(JSON.parse(data.body))
+    //use 
+    res.end(console.log(JSON.parse(data.body)))
   })
   .catch((error) => {
     console.log('err in catch for post', error)
