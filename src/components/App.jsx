@@ -23,7 +23,7 @@ class App extends React.Component {
 				console.log('enters sucess on POST on client')
 			},
 			error: (error) => {
-				
+				console.log('error in client', error)
 			}
 		})
 	}

@@ -38,8 +38,10 @@ app.post('/movies', function(req, res) {
   getMovies(movieName)
   .then((data) => {
     var movieResults=JSON.parse(data.body).results
+    console.log(movieResults)
     db.addMovies(movieResults, (err,data) => {
       if(err) {
+        console.log('error here')
         res.status(500).send();
       } else {
         res.status(201).send();
