@@ -9,3 +9,10 @@ var connection = mysql.createConnection({
 
 connection.connect();
 
+var saveToDatabase = function(movieResults) {
+  //save to database
+  
+}
+
+
+module.exports.saveToDatabase = 

@@ -4,6 +4,7 @@ var promise = require('promise');
 var app= express();
 var config= require('../config.js')
 var request = require('request')
+var db = require('../database.js')
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({'extended': false}))
@@ -24,10 +25,6 @@ var getMovies = function (movieName) {
   })
 }
 
-var save = function() {
-  //save to database
-  
-}
 
 app.use(express.static('compiled'))
 
@@ -38,8 +35,9 @@ app.post('/movies', function(req, res) {
     //res.send() the data
   getMovies(movieName)
   .then((data) => {
-    //use 
-    res.end(console.log(JSON.parse(data.body)))
+    var movieResults=JSON.parse(data.body).results
+    //use save function on the 
+    res.end(console.log(movieResults))
   })
   .catch((error) => {
     console.log('err in catch for post', error)
