@@ -27,6 +27,15 @@ function addMovies(movieArray, callback) {
 
 function getMoviesFromDB(callback) {
 	//use select as q 
+  var q = 'SELECT * FROM movie_list';
+  connection.query(q, (error, results, fields) => {
+    if (error) {
+      console.log(error);
+      callback(error, null);
+    } else {
+      callback(null, results);
+    }
+  })
 }
 
 

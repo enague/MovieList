@@ -32,19 +32,18 @@ var getMovies = function (movieName) {
 
 
 
-app.post('/movies', function(req, res) {
+app.post('/movies', (req, res)=> {
   var movieName = req.body.value;
 
   getMovies(movieName)
   .then((data) => {
     var movieResults=JSON.parse(data.body).results
-    console.log(movieResults)
     db.addMovies(movieResults, (err,data) => {
       if(err) {
-        console.log('error here')
-        res.status(500).send();
+        console.log(err)
+        res.sendStatus(500).send();
       } else {
-        res.status(201).send();
+        res.sendStatus(201).send();
       }
     })
   })
@@ -54,8 +53,15 @@ app.post('/movies', function(req, res) {
 })
 
 //GET movies from db
-app.get('/movies', function(req,res) {
-  
+app.get('/movies', (req,res) => {
+  db.getMoviesFromDB((err, data) => {
+    if(err) {
+      console.log('enters ERR GET SERVER',err);
+    } else {
+      console.log('enters success on GET SERVER')
+      res.send(data);
+    }
+  })
 })
 
 

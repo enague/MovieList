@@ -36,13 +36,36 @@ class App extends React.Component {
 					movies: [this.state.movies[i]]
 				})
 				return;
+
 			} else {
 				this.setState({
 					movies: [{title: 'Movie Not Found -- Please refresh and Try Again!'}]
 				})
 			}
 		}
-	}
+
+		// $.ajax({
+		// 	type: 'GET',
+		// 	url: '/movies',
+		// 	dataType: 'application/json',
+		// 	sucess: (data) => {
+
+		// 		console.log('enters sucess', data)
+
+		// 		// this.setState({
+		// 		// 	movies: data
+		// 		// })
+		// 	},
+		// 	error: (error) => {
+		// 		console.log('error in GET CLIENT',error)
+		// 	}
+		// })
+
+		axios.get('/movies')
+		.then((data)=> {
+			console.log('it works', data)
+		})
+	} 
 
 	// onlyWatchedMovies() {
 	// 	var watchedMovies= []
