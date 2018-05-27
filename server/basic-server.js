@@ -6,8 +6,12 @@ var config= require('../config.js')
 var request = require('request')
 var db = require('../database.js')
 
+//SERVER SETUP
+app.use(express.static('compiled'))
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({'extended': false}))
+
+
 //helper function to get Movies from API
 var getMovies = function (movieName) {
   var options ={
@@ -26,27 +30,34 @@ var getMovies = function (movieName) {
 }
 
 
-app.use(express.static('compiled'))
 
 
 app.post('/movies', function(req, res) {
-  var movieName = req.body.value
-  //use a helper function to get data from movie API
-    //res.send() the data
+  var movieName = req.body.value;
+
   getMovies(movieName)
   .then((data) => {
     var movieResults=JSON.parse(data.body).results
-    //use save function on the 
-    res.end(console.log(movieResults))
+    db.addMovies(movieResults, (err,data) => {
+      if(err) {
+        res.status(500).send();
+      } else {
+        res.status(201).send();
+      }
+    })
   })
   .catch((error) => {
     console.log('err in catch for post', error)
   })
 })
 
+//GET movies from db
 app.get('/movies', function(req,res) {
   
 })
+
+
+
 
 app.listen(3000, () => console.log('MovieList Server listening at 3000'))
 

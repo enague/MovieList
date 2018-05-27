@@ -1,15 +1,17 @@
 
 
-CREATE DATABASE movies;
+DROP DATABASE IF EXISTS movie_data;
 
-USE movies;
+CREATE DATABASE movie_data;
 
-CREATE TABLE movie_data (
-  id int, NOT NULL,
-  title varchar(50), NOT NULL,
-  year varchar(50), NOT NULL,
-  description varchar(300), NOT NULL,
-  rating int, NOT NULL,
-  PRIMARY KEY(id),
-)
+USE movie_data;
+
+CREATE TABLE movie_list (
+  ID int AUTO_INCREMENT,
+  Title varchar(50) NOT NULL,
+  Year varchar(50) NOT NULL,
+  Description varchar(300) NOT NULL,
+  Rating int NOT NULL,
+  PRIMARY KEY(ID)
+);
 
