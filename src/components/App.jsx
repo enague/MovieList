@@ -2,13 +2,13 @@ class App extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			movies: []
+			movies: this.props.movies
 		}
 		this.handleClick= this.handleClick.bind(this);
 		this.getMoviesFromDB =this.getMoviesFromDB.bind(this);
 	}
-	//add button
 
+	//add button
 	addMovie(value) {
 		if(value === '') {
 			this.handleClick(value);
@@ -80,13 +80,13 @@ class App extends React.Component {
 
 
 	render() {
-		this.addMovie('')
 		return (
 			<div>
 				<h2> Feel free to add movies to our list here! </h2>
 				<Add addMovie={this.addMovie.bind(this)}/>
 				<h3> Have a movie in mind?</h3>
 				<p> Check here to see if we have it in our list! </p>
+				<p> If nothing shows up, try adding it to our list above! </p>
 				<Search handleClick={this.handleClick.bind(this)} movie= {this.state.movies}/>
 				<MovieList movie={this.state.movies}/>
 				<div className='newMovies'></div>

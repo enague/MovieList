@@ -56,8 +56,8 @@ class Info extends React.Component {
 
         return (
             <div className="info">
-	            <div> Year: {this.props.movieDetail.Year}</div>
-	            <div> Summary: {this.props.movieDetail.Description}</div>
+	            <div> <b>Year:</b> {this.props.movieDetail.Year}</div>
+	            <div> <b>Summary:</b> {this.props.movieDetail.Description}</div>
 	            <div class="rate">
 				    <div style={{color: bgColor1}} onClick= {this.rating1.bind(this)} className="rate-item">☆</div>
 				    <div style={{color: bgColor2}} onClick= {this.rating2.bind(this)} className="rate-item">☆</div>
@@ -65,7 +65,7 @@ class Info extends React.Component {
 					<div style={{color: bgColor4}} onClick= {this.rating4.bind(this)} className="rate-item">☆</div>
 					<div style={{color: bgColor5}} onClick= {this.rating5.bind(this)} className="rate-item">☆</div>
 				</div>
-	            <div> imdbRating: {this.props.movieDetail.Rating}</div>
+	            <div> <b>imdbRating:</b> {this.props.movieDetail.Rating}</div>
 	            <div className='watch' onClick={() => {this.toggleWatch()}}> {this.state.toggle ? 'To Watch' : 'Watched'} </div>
             </div>
             

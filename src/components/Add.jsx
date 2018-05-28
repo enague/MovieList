@@ -26,7 +26,7 @@ class Add extends React.Component {
           		value={this.state.value}
           		onChange={this.handleInputChange.bind(this)}
         	/>
-        	<button onClick={() => {this.props.addMovie(this.state.value)}} className="btn hidden-sm-down"> Add </button>
+        	<button onClick={() => {this.props.addMovie(this.state.value)}}> Add </button>
         	</div> 
 
 		)
