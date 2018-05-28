@@ -1,5 +1,5 @@
 body {
-  background-color: #75aaff;
+  background-color: #A8DADC;
 }
 
 button {
@@ -9,14 +9,14 @@ button {
   font-family: Arial;
   color: #ffffff;
   font-size: 15px;
-  background: #020405;
+  background: #E63946;
   padding: 5px 20px 5px 20px;
   text-decoration: none;
   text-align: center;
 }
 
 button:hover {
-  background: #007cc9;
+  background: #E58991;
   text-decoration: none;
   cursor: pointer;
 }
@@ -25,7 +25,9 @@ button:hover {
   font-size: 50px;
   font-family: 'Pangolin', cursive;
   text-align: center;
-  color: #f49842;
+  color: #1D3557;
+  padding: 40px;
+
 }
 
 #movie {
@@ -33,7 +35,7 @@ button:hover {
   font-size: 30px;
   margin-top: 10px;
   margin-bottom: 10px;
-  color: #f49842;
+  color: #1D3557;
   border: 0px;
   border-radius: 5px;
   border-width: 1px;
@@ -47,14 +49,14 @@ button:hover {
 }
 
 .watch {
-  color: blue;
+  color: #E63946;
   font-weight: bold;
   cursor: pointer;
   font-size: 24px;
 }
 
 .watch:hover {
-  color: lightblue;
+  color: #E58991;
 }
 
 
@@ -79,3 +81,12 @@ button:hover {
 .rate-item:hover ~ .rate-item {
     color: black;
 }
+
+.search {
+  margin-bottom: 28px;
+}
+
+.refresh {
+  margin-top: 28px;
+}
+

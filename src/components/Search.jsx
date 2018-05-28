@@ -24,7 +24,7 @@ class Search extends React.Component {
           		value={this.state.value}
           		onChange={this.handleInputChange.bind(this)}
         	/>
-        	<button onClick={() => {this.props.handleClick(this.state.value)}} className="btn hidden-sm-down"> Search </button>
+        	<button onClick={() => {this.props.handleClick(this.state.value)}} className="search"> Search </button>
         	</div> 
 
 		)

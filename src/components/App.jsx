@@ -86,12 +86,12 @@ class App extends React.Component {
 			<div>
 				<h2> Feel free to add movies to our list here! </h2>
 				<Add addMovie={this.addMovie.bind(this)}/>
-				<h2> Have a movie in mind?</h2>
-				<h3> Check here to see if we have it in our list! </h3>
+				<h3> Have a movie in mind?</h3>
+				<p> Check here to see if we have it in our list! </p>
 				<Search handleClick={this.handleClick.bind(this)} movie= {this.state.movies}/>
 				<MovieList movie={this.state.movies}/>
 				<div className='newMovies'></div>
-				<button onClick={()=> {location.reload()}}>Refresh Page</button>
+				<button className='refresh' onClick={()=> {location.reload()}}>Refresh Page</button>
 				<button onClick= {() => {this.onlyWatchedMovies()}}> Watched Movies</button>
 				<button onClick= {() => {this.onlyToWatchMovies()}}> Movies To Watch</button>
 			</div>	
