@@ -34,17 +34,15 @@ var getMovies = function (movieName) {
 
 app.post('/movies', (req, res)=> {
   var movieName = req.body.params.value;
-
-
   getMovies(movieName)
   .then((data) => {
     var movieResults=JSON.parse(data.body).results
     db.addMovies(movieResults, (err,data) => {
       if(err) {
         console.log(err)
-        res.sendStatus(500).send();
+        res.send();
       } else {
-        res.sendStatus(201).send();
+        res.send();
       }
     })
   })

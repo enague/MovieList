@@ -5,7 +5,7 @@ class App extends React.Component {
 			movies: this.props.movies
 		}
 		this.handleClick= this.handleClick.bind(this);
-		this.getMoviesFromAPI =this.getMoviesFromAPI.bind(this);
+		this.getMoviesFromDB =this.getMoviesFromDB.bind(this);
 	}
 	//add button
 
@@ -36,7 +36,7 @@ class App extends React.Component {
 		})
 		.then((data)=> {
 			console.log('enters sucess on POST client')
-			this.handleClick();
+			this.handleClick(value);
 		})
 		.catch((error)=> {
 			console.log(error)
@@ -45,27 +45,27 @@ class App extends React.Component {
 	
 	//search button
 	handleClick(value) {
-		for(var i = 0; i < this.state.movies.length; i++) {
-			if(this.state.movies[i].Title.toUpperCase() === value.toUpperCase()) {
-				this.setState({
-					movies: [this.state.movies[i]]
-				})
-				return;
+		// for(var i = 0; i < this.state.movies.length; i++) {
+		// 	if(this.state.movies[i].Title.toUpperCase() === value.toUpperCase()) {
+		// 		this.setState({
+		// 			movies: [this.state.movies[i]]
+		// 		})
+		// 		return;
 
-			} else {
-				this.setState({
-					movies: [{title: 'Movie Not Found -- Please refresh and Try Again!'}]
-				})
-			}
-		}
+		// 	} else {
+		// 		this.setState({
+		// 			movies: [{title: 'Movie Not Found -- Please refresh and Try Again!'}]
+		// 		})
+		// 	}
+		// }
 
-		this.getMoviesFromAPI(value)
+		this.getMoviesFromDB(value)
 
 	} 
 
 
 	
-	getMoviesFromAPI(value) {	
+	getMoviesFromDB(value) {	
 		axios.get('/movies', {
 			params: {
 				value: value

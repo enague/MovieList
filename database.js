@@ -27,8 +27,9 @@ function addMovies(movieArray, callback) {
 
 function getMoviesFromDB(searchedMovie, callback) {
 	//use select as q 
-  var q = `SELECT * FROM movie_list WHERE Title = '${searchedMovie}'`;
+  var q = `SELECT * FROM movie_list WHERE Title LIKE '${searchedMovie}%'`;
   connection.query(q, (error, results, fields) => {
+    console.log(results)
     if (error) {
       console.log(error);
       callback(error, null);
