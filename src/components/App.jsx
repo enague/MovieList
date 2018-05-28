@@ -2,7 +2,7 @@ class App extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			movies: this.props.movies
+			movies: []
 		}
 		this.handleClick= this.handleClick.bind(this);
 		this.getMoviesFromDB =this.getMoviesFromDB.bind(this);
@@ -80,6 +80,7 @@ class App extends React.Component {
 
 
 	render() {
+		this.addMovie('')
 		return (
 			<div>
 				<h2> Feel free to add movies to our list here! </h2>
