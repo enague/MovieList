@@ -14,10 +14,8 @@ class App extends React.Component {
 			this.setState({
 				movies: [{title: 'Oops I do not think you entered a movie title - Try again!'}]
 			})
-		} else {
-			this.state.movies.push({title: value})
-		}
-		
+		} 
+
 		$.ajax({
 			type: 'POST',
 			url: '/movies',
@@ -48,14 +46,18 @@ class App extends React.Component {
 			}
 		}
 
-		this.getMoviesFromAPI()
+		this.getMoviesFromAPI(value)
 
 	} 
 
 
 	
-	getMoviesFromAPI() {	
-		axios.get('/movies')
+	getMoviesFromAPI(value) {	
+		axios.get('/movies', {
+			params: {
+				value: value
+			}
+		})
 		.then((response)=> {
 			console.log('it works', response.data)
 			this.setState({

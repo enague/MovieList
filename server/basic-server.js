@@ -54,7 +54,8 @@ app.post('/movies', (req, res)=> {
 
 //GET movies from db
 app.get('/movies', (req,res) => {
-  db.getMoviesFromDB((err, data) => {
+  var movieISearchedFor = req.query.value;
+  db.getMoviesFromDB(movieISearchedFor, (err, data) => {
     if(err) {
       console.log('enters ERR GET SERVER',err);
     } else {
