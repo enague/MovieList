@@ -3,7 +3,6 @@ class MovieListEntry extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			movieInfo: this.props.movieDetail,
 			info: false	
 		};
  	}
@@ -18,8 +17,8 @@ class MovieListEntry extends React.Component {
 	render() {
 		return (
 			<div>
-		 		<div id='movie' onClick={() => {this.showResultsNow()}}> {this.props.movieDetail.title} </div>
-		 		<div> {this.state.info ? <Info movieDetail={this.state.movieInfo} /> : null} </div> 	
+		 		<div id='movie' onClick={() => {this.showResultsNow()}}> {this.props.movieDetail.Title} </div>
+		 		<div> {this.state.info ? <Info movieDetail={this.props.movieDetail} /> : null} </div> 	
     		</div>
 
 		)

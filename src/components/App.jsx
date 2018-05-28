@@ -4,8 +4,11 @@ class App extends React.Component {
 		this.state = {
 			movies: this.props.movies
 		}
+		this.handleClick= this.handleClick.bind(this);
+		this.getMoviesFromAPI =this.getMoviesFromAPI.bind(this);
 	}
 	//add button
+
 	addMovie(value) {
 		if(value === '') {
 			this.setState({
@@ -20,6 +23,7 @@ class App extends React.Component {
 			url: '/movies',
 			data: {value},
 			success: (data) => {
+				this.handleClick()
 				console.log('enters sucess on POST on client')
 			},
 			error: (error) => {
@@ -31,7 +35,7 @@ class App extends React.Component {
 	//search button
 	handleClick(value) {
 		for(var i = 0; i < this.state.movies.length; i++) {
-			if(this.state.movies[i].title.toUpperCase() === value.toUpperCase()) {
+			if(this.state.movies[i].Title.toUpperCase() === value.toUpperCase()) {
 				this.setState({
 					movies: [this.state.movies[i]]
 				})
@@ -44,47 +48,23 @@ class App extends React.Component {
 			}
 		}
 
-		// $.ajax({
-		// 	type: 'GET',
-		// 	url: '/movies',
-		// 	dataType: 'application/json',
-		// 	sucess: (data) => {
+		this.getMoviesFromAPI()
 
-		// 		console.log('enters sucess', data)
-
-		// 		// this.setState({
-		// 		// 	movies: data
-		// 		// })
-		// 	},
-		// 	error: (error) => {
-		// 		console.log('error in GET CLIENT',error)
-		// 	}
-		// })
-
-		axios.get('/movies')
-		.then((data)=> {
-			console.log('it works', data)
-		})
 	} 
 
-	// onlyWatchedMovies() {
-	// 	var watchedMovies= []
-	// 	console.log(this.state.movies[0])
-	// 	for(var i = 0; i < this.state.movies; i++) {
-	// 		console.log(this.state.movies[i].toggle)
-	// 		if(this.state.movies[i][toggle]) {
-	// 			watchedMovies.push(this.state.movies[i])
-	// 		}
-	// 	}
-	// 	this.setState({
-	// 		movies: watchedMovies
-		
-	// 	})
-	// }
 
-	// onlyToWatchMovies() {
+	
+	getMoviesFromAPI() {	
+		axios.get('/movies')
+		.then((response)=> {
+			console.log('it works', response.data)
+			this.setState({
+				movies: response.data
+			})
+		})
+	}
 
-	// }
+
 
 	render() {
 		return (
