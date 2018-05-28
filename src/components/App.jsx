@@ -16,17 +16,30 @@ class App extends React.Component {
 			})
 		} 
 
-		$.ajax({
-			type: 'POST',
-			url: '/movies',
-			data: {value},
-			success: (data) => {
-				this.handleClick()
-				console.log('enters sucess on POST on client')
-			},
-			error: (error) => {
-				console.log('error in client', error)
+		// $.ajax({
+		// 	type: 'POST',
+		// 	url: '/movies',
+		// 	data: {value},
+		// 	success: (data) => {
+		// 		this.handleClick()
+		// 		console.log('enters sucess on POST on client')
+		// 	},
+		// 	error: (error) => {
+		// 		console.log('error in client', error)
+		// 	}
+		// })
+
+		axios.post('/movies', {
+			params: {
+				value: value
 			}
+		})
+		.then((data)=> {
+			console.log('enters sucess on POST client')
+			this.handleClick();
+		})
+		.catch((error)=> {
+			console.log(error)
 		})
 	}
 	

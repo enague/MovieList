@@ -33,7 +33,8 @@ var getMovies = function (movieName) {
 
 
 app.post('/movies', (req, res)=> {
-  var movieName = req.body.value;
+  var movieName = req.body.params.value;
+
 
   getMovies(movieName)
   .then((data) => {
