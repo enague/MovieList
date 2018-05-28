@@ -11,9 +11,7 @@ class App extends React.Component {
 
 	addMovie(value) {
 		if(value === '') {
-			this.setState({
-				movies: [{title: 'Oops I do not think you entered a movie title - Try again!'}]
-			})
+			this.handleClick(value);
 		} 
 
 		// $.ajax({
